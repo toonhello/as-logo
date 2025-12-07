@@ -49,14 +49,14 @@ footer {
 }
 
 .logo-start {
-    background-image: url("/images/logo-scroll-start.png");
+    background-image: url("/images/logo-scroll-start.svg");
     background-size: var(--logo-start-xs-width) var(--logo-xs-height);
     width: var(--logo-start-xs-width);
     height: var(--logo-xs-height);
 }
 
 .logo-end {
-    background-image: url("/images/logo-scroll-end.png");
+    background-image: url("/images/logo-scroll-end.svg");
     background-size: var(--logo-end-xs-width) var(--logo-xs-height);
     width: var(--logo-end-xs-width);
     height: var(--logo-xs-height);
