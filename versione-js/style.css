@@ -1,0 +1,80 @@
+:root {
+    --logo-start-xs-width: 112px;
+    --logo-middle-xs-width: 5px;
+    --logo-end-xs-width: 226px;
+    --logo-xs-height: 73px;
+
+    --logo-start-lg-width: 192px;
+    --logo-middle-lg-width: 9px;
+    --logo-end-lg-width: 387px;
+    --logo-lg-height: 125px;
+}
+
+body {
+    height: 200vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+footer {
+    padding-bottom: 100px; /* TBR dimensione fissa per distanza da bottom */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;  /* TBR stile */
+    background-color: #000000;
+}
+
+#logo-container {
+    padding: 110px 0; /* TBR spaziatura fissa per distanza dal resto */
+    width: 100%;
+    display: flex;
+    background-color: #FFAF66; /* TBR stile */
+}
+
+.logo-part {
+    background-repeat: repeat-x;
+    background-position: top left;
+}
+
+.logo-start {
+    background-image: url("images/logo-scroll-start.svg");
+    background-size: var(--logo-start-xs-width) var(--logo-xs-height);
+    width: var(--logo-start-xs-width);
+    height: var(--logo-xs-height);
+}
+
+.logo-end {
+    background-image: url("images/logo-scroll-end.svg");
+    background-size: var(--logo-end-xs-width) var(--logo-xs-height);
+    width: var(--logo-end-xs-width);
+    height: var(--logo-xs-height);
+}
+
+.logo-middle {
+    background-image: url("images/logo-scroll-middle.svg");
+    background-size: auto var(--logo-xs-height);
+    height: var(--logo-xs-height);
+    /* Firefox requires this to apply the animation */
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+    .logo-start {
+        width: var(--logo-start-lg-width);
+        height: var(--logo-lg-height);
+        background-size: var(--logo-start-lg-width) var(--logo-lg-height);
+    }
+
+    .logo-end {
+        width: var(--logo-end-lg-width);
+        height: var(--logo-lg-height);
+        background-size: var(--logo-end-lg-width) var(--logo-lg-height);
+    }
+
+    .logo-middle {
+        height: var(--logo-lg-height);
+        background-size: auto var(--logo-lg-height);
+    }
+}
