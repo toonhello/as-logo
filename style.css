@@ -21,22 +21,21 @@ footer {
     padding-bottom: 100px; /* TBR dimensione fissa per distanza da bottom */
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-end;  /* TBR stile */
     background-color: #000000;
     view-timeline-name: --logoTimeline;
 }
 
 #logo-container {
-    padding: 110px 0;
+    padding: 110px 0; /* TBR spaziatura fissa per distanza dal resto */
     width: 100%;
     display: flex;
-    background-color: #FFAF66;
+    background-color: #FFAF66; /* TBR stile */
 }
 
 .logo-part {
     background-repeat: repeat-x;
     background-position: top left;
-    background-size: cover;
 }
 
 @keyframes grow-progress {
@@ -50,48 +49,58 @@ footer {
 }
 
 .logo-start {
-    background-image: url("/images/logo-scroll-start.svg");
+    background-image: url("/images/logo-scroll-start.png");
+    background-size: var(--logo-start-xs-width) var(--logo-xs-height);
     width: var(--logo-start-xs-width);
     height: var(--logo-xs-height);
 }
 
 .logo-end {
-    background-image: url("/images/logo-scroll-end.svg");
+    background-image: url("/images/logo-scroll-end.png");
+    background-size: var(--logo-end-xs-width) var(--logo-xs-height);
     width: var(--logo-end-xs-width);
     height: var(--logo-xs-height);
 }
 
 .logo-middle {
     background-image: url("/images/logo-scroll-middle.svg");
-    background-size: auto;
+    background-size: var(--logo-middle-xs-width) var(--logo-xs-height);
     height: var(--logo-xs-height);
-    /* ROOT
-  animation: grow-progress linear;
-  animation-timeline: scroll(root); 
-  */
-
     animation: grow-progress ease-in;
-    animation-timeline: --logoTimeline;
+    animation-timeline: view();
     animation-fill-mode: both;
     animation-duration: 1ms;
+    animation-range: 0% 38%;
     /* Firefox requires this to apply the animation */
 }
 
+@supports (animation-timeline: scroll()) {
+
+    /* Styles for supported browsers (Chrome, Edge) */
+    .logo-middle {
+        animation-timeline: --logoTimeline;
+    }
+}
+
+
 /* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { 
+@media (min-width: 992px) {
 
     .logo-start {
         width: var(--logo-start-lg-width);
         height: var(--logo-lg-height);
+        background-size: var(--logo-start-lg-width) var(--logo-lg-height);
     }
 
     .logo-end {
         width: var(--logo-end-lg-width);
         height: var(--logo-lg-height);
+        background-size: var(--logo-end-lg-width) var(--logo-lg-height);
     }
 
     .logo-middle {
         height: var(--logo-lg-height);
+        background-size: var(--logo-middle-lg-width) var(--logo-lg-height);
     }
 
     @keyframes grow-progress {
@@ -99,7 +108,7 @@ footer {
             width: var(--logo-middle-xs-width);
         }
 
-        31% {
+        100% {
             width: calc(99.6% - (var(--logo-start-lg-width) + var(--logo-end-lg-width)));
         }
     }
