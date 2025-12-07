@@ -1,0 +1,107 @@
+:root {
+    --logo-start-xs-width: 112px;
+    --logo-middle-xs-width: 5px;
+    --logo-end-xs-width: 226px;
+    --logo-xs-height: 73px;
+
+    --logo-start-lg-width: 192px;
+    --logo-middle-lg-width: 9px;
+    --logo-end-lg-width: 387px;
+    --logo-lg-height: 125px;
+}
+
+body {
+    height: 200vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+footer {
+    padding-bottom: 100px; /* TBR dimensione fissa per distanza da bottom */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #000000;
+    view-timeline-name: --logoTimeline;
+}
+
+#logo-container {
+    padding: 110px 0;
+    width: 100%;
+    display: flex;
+    background-color: #FFAF66;
+}
+
+.logo-part {
+    background-repeat: repeat-x;
+    background-position: top left;
+    background-size: cover;
+}
+
+@keyframes grow-progress {
+    0% {
+        width: var(--logo-middle-xs-width);
+    }
+
+    31% {
+        width: calc(99.6% - (var(--logo-start-xs-width) + var(--logo-end-xs-width)));
+    }
+}
+
+.logo-start {
+    background-image: url("/images/logo-scroll-start.svg");
+    width: var(--logo-start-xs-width);
+    height: var(--logo-xs-height);
+}
+
+.logo-end {
+    background-image: url("/images/logo-scroll-end.svg");
+    width: var(--logo-end-xs-width);
+    height: var(--logo-xs-height);
+}
+
+.logo-middle {
+    background-image: url("/images/logo-scroll-middle.svg");
+    background-size: auto;
+    height: var(--logo-xs-height);
+    /* ROOT
+  animation: grow-progress linear;
+  animation-timeline: scroll(root); 
+  */
+
+    animation: grow-progress ease-in;
+    animation-timeline: --logoTimeline;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+    /* Firefox requires this to apply the animation */
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+    .logo-start {
+        width: var(--logo-start-lg-width);
+        height: var(--logo-lg-height);
+    }
+
+    .logo-end {
+        width: var(--logo-end-lg-width);
+        height: var(--logo-lg-height);
+    }
+
+    .logo-middle {
+        height: var(--logo-lg-height);
+    }
+
+    @keyframes grow-progress {
+        0% {
+            width: var(--logo-middle-xs-width);
+        }
+
+        31% {
+            width: calc(99.6% - (var(--logo-start-lg-width) + var(--logo-end-lg-width)));
+        }
+    }
+
+}
