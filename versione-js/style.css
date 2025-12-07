@@ -53,7 +53,7 @@ footer {
 
 .logo-middle {
     background-image: url("images/logo-scroll-middle.svg");
-    background-size: auto var(--logo-xs-height);
+    background-size: var(--logo-middle-xs-width) var(--logo-xs-height);
     height: var(--logo-xs-height);
     /* Firefox requires this to apply the animation */
 }
@@ -75,6 +75,6 @@ footer {
 
     .logo-middle {
         height: var(--logo-lg-height);
-        background-size: auto var(--logo-lg-height);
+        background-size: var(--logo-middle-lg-width) var(--logo-lg-height);
     }
 }
