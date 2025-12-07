@@ -70,7 +70,6 @@ footer {
     animation-timeline: view();
     animation-fill-mode: both;
     animation-duration: 1ms;
-    animation-range: 0% 38%;
     /* Firefox requires this to apply the animation */
 }
 
@@ -101,6 +100,7 @@ footer {
     .logo-middle {
         height: var(--logo-lg-height);
         background-size: var(--logo-middle-lg-width) var(--logo-lg-height);
+        animation-range: 0% 38%;
     }
 
     @keyframes grow-progress {
